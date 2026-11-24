@@ -11,6 +11,7 @@ Verified in Chrome on November 24, 2026:
 - Corrected the quota email to match the actual Devpost account settings. The original restored form had a different email. Personal contact details are kept in the browser form rather than committed here.
 - A working local prototype is implemented. Firebase project `quietquorum-358a5` and its web app were created on the Spark plan. Gemini Developer API and Firebase AI Logic are enabled, App Check enforcement was enabled by the setup flow, and a local debug token was registered. Live cloud synthesis passed. See `development.md` for remaining release work.
 - The prototype is deployed at https://quietquorum-358a5.web.app. Production App Check is registered and a live cloud request from the hosted app succeeded. On-device and offline local inference were also verified in development. No billing upgrade was made.
+- Source is public at https://github.com/waleedmustafa971/quietquorum. Devpost's project story now describes the verified implementation, and its demo and repository links were saved and checked on the project page. The page still says INCOMPLETE SUBMISSION; the demo video and final steps remain outstanding.
 
 The canonical project URL was obtained from Devpost's Preview link and verified in the signed-in browser. A separate unauthenticated HTTP check encountered Cloudflare, so anonymous access was not independently verified.
 

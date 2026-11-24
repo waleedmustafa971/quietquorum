@@ -37,5 +37,8 @@
   "productionAppCheckRegistered": true,
   "hostedCloudInferenceVerified": true,
   "firebaseCliAuthenticated": true,
-  "hostedOfflineReloadVerified": true
+  "hostedOfflineReloadVerified": true,
+  "repositoryPublished": true,
+  "devpostImplementationDetailsSaved": true,
+  "devpostDemoAndRepositoryLinksSaved": true
 }
