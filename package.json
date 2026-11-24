@@ -1,0 +1,34 @@
+{
+  "name": "quietquorum",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite --host 127.0.0.1",
+    "build": "tsc -b && vite build",
+    "preview": "vite preview --host 127.0.0.1",
+    "test": "vitest run",
+    "test:meta": "node scripts/evaluate-meta.mjs"
+  },
+  "dependencies": {
+    "firebase": "13.4.0",
+    "idb": "8.0.4",
+    "lucide-react": "1.79.0",
+    "react": "19.3.1",
+    "react-dom": "19.3.1"
+  },
+  "devDependencies": {
+    "@types/react": "19.3.0",
+    "@types/react-dom": "19.3.0",
+    "@vitejs/plugin-react": "6.3.0",
+    "typescript": "7.0.2",
+    "vite": "8.3.8",
+    "vite-plugin-pwa": "2.0.0",
+    "vitest": "5.1.1"
+  },
+  "overrides": {
+    "@grpc/grpc-js": "1.14.7",
+    "glob": "14.0.6",
+    "minimatch": "11.0.9"
+  }
+}

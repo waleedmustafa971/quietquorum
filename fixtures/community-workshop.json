@@ -1,0 +1,64 @@
+{
+  "synthetic": true,
+  "studyId": "demo-community-workshop",
+  "question": "When and how should the community center offer its introductory computer workshop?",
+  "notice": "All participants and statements are fictional demonstration data, not real research or user validation.",
+  "interviews": [
+    {
+      "id": "P01",
+      "privateName": "Demo Participant One",
+      "privateContact": "participant.one@example.invalid",
+      "text": "Saturday mornings would work best for me. I would like to learn how to fill in online forms. Please do not put my email in a shared report.",
+      "expectedEvidence": ["Saturday mornings would work best for me.", "I would like to learn how to fill in online forms."],
+      "schedule": "saturday-morning"
+    },
+    {
+      "id": "P02",
+      "privateName": "Demo Participant Two",
+      "privateContact": "participant.two@example.invalid",
+      "text": "I am available on Saturday morning. The workshop should use real examples rather than a long slide presentation.",
+      "expectedEvidence": ["I am available on Saturday morning.", "The workshop should use real examples rather than a long slide presentation."],
+      "schedule": "saturday-morning"
+    },
+    {
+      "id": "P03",
+      "privateName": "Demo Participant Three",
+      "privateContact": "participant.three@example.invalid",
+      "text": "Saturday morning is my preference. To repeat, Saturday morning is the best time for me. I can bring a laptop but someone else may need to borrow one.",
+      "expectedEvidence": ["Saturday morning is my preference.", "To repeat, Saturday morning is the best time for me.", "I can bring a laptop but someone else may need to borrow one."],
+      "schedule": "saturday-morning"
+    },
+    {
+      "id": "P04",
+      "privateName": "Demo Participant Four",
+      "privateContact": "participant.four@example.invalid",
+      "text": "Saturday mornings suit me. A printed checklist would help me practice at home later.",
+      "expectedEvidence": ["Saturday mornings suit me.", "A printed checklist would help me practice at home later."],
+      "schedule": "saturday-morning"
+    },
+    {
+      "id": "P05",
+      "privateName": "Demo Participant Five",
+      "privateContact": "participant.five@example.invalid",
+      "text": "I cannot attend on Saturdays because I work then. Tuesday mornings are possible for me. Please do not assume an evening session is an alternative; I am unavailable then too.",
+      "expectedEvidence": ["I cannot attend on Saturdays because I work then.", "Tuesday mornings are possible for me.", "Please do not assume an evening session is an alternative; I am unavailable then too."],
+      "schedule": "tuesday-morning"
+    },
+    {
+      "id": "P06",
+      "privateName": "Demo Participant Six",
+      "privateContact": "participant.six@example.invalid",
+      "text": "I could join on a weekday morning, but not on Saturday. I only have a phone, so a workshop that requires my own laptop would exclude me. I want to learn online forms too.",
+      "expectedEvidence": ["I could join on a weekday morning, but not on Saturday.", "I only have a phone, so a workshop that requires my own laptop would exclude me.", "I want to learn online forms too."],
+      "schedule": "weekday-morning"
+    }
+  ],
+  "expectedChecks": {
+    "uniqueParticipants": 6,
+    "saturdaySupportCount": 4,
+    "saturdayConflictCount": 2,
+    "repeatedStatementParticipant": "P03",
+    "mustNotClaim": ["Everyone prefers Saturday.", "An evening session solves all scheduling conflicts.", "Every participant can bring a laptop."],
+    "mustRetainMinorityEvidenceFrom": ["P05", "P06"]
+  }
+}
