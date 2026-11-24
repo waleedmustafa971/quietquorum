@@ -31,7 +31,7 @@
   "appCheckDebugRegistered": true,
   "metaDevelopmentTestPassed": true,
   "offlineReloadVerified": true,
-  "unitTestsPassed": 7,
+  "unitTestsPassed": 27,
   "publicDeploymentVerified": true,
   "localOfflineInferenceVerified": true,
   "productionAppCheckRegistered": true,
@@ -40,5 +40,15 @@
   "hostedOfflineReloadVerified": true,
   "repositoryPublished": true,
   "devpostImplementationDetailsSaved": true,
-  "devpostDemoAndRepositoryLinksSaved": true
+  "devpostDemoAndRepositoryLinksSaved": true,
+  "broadTestingCompleted": true,
+  "evaluationReport": "docs/evaluation/2026-11-24.md",
+  "evaluation": {
+    "localScenariosPassed": 6,
+    "localScenarios": 6,
+    "cloudBaselineCalls": 12,
+    "cloudFollowupCalls": 16,
+    "semanticErrorsRemain": true,
+    "browserChecksPassed": 12
+  }
 }

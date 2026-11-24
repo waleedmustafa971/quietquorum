@@ -22,7 +22,7 @@ export function createCard(note: Note, quote: string, origin: Card['origin'] = '
 }
 export function editCard(card: Card, shareText: string): Card { return { ...card, shareText, approved: false }; }
 export function uncoveredPassages(note: Note, cards: Card[]): string[] {
-  const passages = (note.text.match(/[^.!?\n]+(?:[.!?]+|$)/g) || []).map(s => s.trim()).filter(Boolean);
+  const passages = (note.text.match(/[^.!?\n]+(?:[.!?]+|(?=\n|$))/g) || []).map(s => s.trim()).filter(Boolean);
   return passages.filter(p => !cards.some(c => c.noteId === note.id && c.quote.includes(p)));
 }
 export function makePayload(study: Study): Payload {

@@ -37,6 +37,8 @@ The production build includes a service worker for offline capture and review af
 
 Live verification status and remaining release work are recorded in [development notes](docs/development.md). A successful build or written example is not proof of live inference.
 
+Broader testing now includes 27 unit tests, 12 additional browser checks, six local extraction scenarios and 28 cloud calls across the original and revised prompts. Semantic errors remain; read the [evaluation report](docs/evaluation/2026-11-24.md), including the failures. Future sessions should start with the [continuation record](docs/continuation.md).
+
 ## Data boundaries
 
 Local data is not encrypted by this app. It belongs to the current browser profile and origin; clearing browser data removes it. Use one interview note per participant: separate notes count as separate participants. Redaction is manual and contextual identifiers may remain. Review the research question and the entire payload before sending. The app does not automatically send notes on reconnect.

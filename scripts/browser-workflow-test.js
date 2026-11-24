@@ -1,0 +1,51 @@
+// Destructive only to the dedicated test origin. Never run against the live app.
+async () => {
+  if (location.origin !== 'http://127.0.0.1:4174') throw new Error('Use the isolated test preview on port 4174.');
+  const checks = [], pause = () => new Promise(r => setTimeout(r, 180));
+  const button = text => [...document.querySelectorAll('button')].find(b => b.textContent.trim() === text || b.getAttribute('aria-label') === text);
+  const click = async text => { const b = button(text); if (!b || b.disabled) throw new Error('Unavailable button: ' + text); b.click(); await pause(); };
+  const assert = (condition, message) => { if (!condition) throw new Error(message); checks.push(message); };
+  const fill = async (selector, value) => {
+    const input = document.querySelector(selector); if (!input) throw new Error('Missing ' + selector);
+    const proto = input.tagName === 'TEXTAREA' ? HTMLTextAreaElement.prototype : HTMLInputElement.prototype;
+    Object.getOwnPropertyDescriptor(proto, 'value').set.call(input, value);
+    input.dispatchEvent(new Event('input', { bubbles: true })); await pause();
+  };
+  await click('Settings & AI setup'); await click('Clear study and start fresh'); await click('Clear and start fresh');
+  assert(document.body.innerText.includes('Start with one conversation.'), 'Empty study is usable');
+  await fill('[aria-label="Research question"]', 'What would make attendance possible?');
+  await click('New interview');
+  assert(button('Suggest evidence').disabled, 'Empty note cannot start extraction');
+  await fill('#interview-text', 'I cannot attend Friday\nWednesday works for me\n<img src=x onerror=window.__qqXss=1>');
+  document.querySelector('.identity-fields').open = true;
+  const privateInputs = document.querySelectorAll('.identity-fields input');
+  privateInputs[0].id = 'test-private-name'; privateInputs[1].id = 'test-private-contact';
+  await fill('#test-private-name', 'PRIVATE_NAME_SENTINEL'); await fill('#test-private-contact', 'PRIVATE_CONTACT_SENTINEL');
+  document.querySelector('.manual-editor').open = true;
+  await fill('[aria-label="Exact source excerpt"]', 'An invented quote'); await click('Add card');
+  assert(document.querySelector('[role=alert]')?.textContent.includes('exact excerpt'), 'Invented manual quote is rejected');
+  await fill('[aria-label="Exact source excerpt"]', 'Wednesday works for me'); await click('Add card');
+  document.querySelector('.uncovered-source').open = true;
+  assert(document.querySelector('.uncovered-source').innerText.includes('I cannot attend Friday'), 'Unpunctuated negative constraint remains visible in coverage');
+  await fill('[aria-label="Exact source excerpt"]', '<img src=x onerror=window.__qqXss=1>'); await click('Add card');
+  assert(!window.__qqXss && !document.querySelector('.evidence-card img'), 'HTML evidence is rendered as text');
+  const approve = document.querySelector('.evidence-card input[type=checkbox]'); approve.click(); await pause();
+  await click('02Review evidence'); await click('Review cloud payload');
+  const payload = JSON.parse(document.querySelector('.payload').textContent);
+  assert(payload.evidence.length === 1 && payload.evidence[0].excerpt === 'Wednesday works for me', 'Payload contains only the approved excerpt');
+  assert(!JSON.stringify(payload).includes('PRIVATE_') && !JSON.stringify(payload).includes('onerror'), 'Private fields and unapproved note text stay out of payload');
+  await click('Go back'); await click('01Capture notes');
+  await fill('#interview-text', 'A replacement note.');
+  assert(document.querySelectorAll('.evidence-card').length === 0, 'Changing original text removes its cards');
+  await click('Delete this interview'); await click('Keep interview');
+  assert(!!document.querySelector('#interview-text'), 'Delete can be cancelled');
+  await click('Delete this interview'); await click('Delete interview');
+  assert(!document.querySelector('#interview-text'), 'Deleting the last note returns to empty state');
+  const fileInput = document.querySelector('input[type=file]');
+  const setFile = async (contents, name) => { const dt = new DataTransfer(); dt.items.add(new File([contents], name, { type: 'text/plain' })); fileInput.files = dt.files; fileInput.dispatchEvent(new Event('change', { bubbles: true })); await pause(); };
+  await setFile('x'.repeat(100001), 'too-large.txt');
+  assert(document.querySelector('[role=alert]')?.textContent.includes('100 KB'), 'Oversized import is rejected');
+  await setFile('I need captions. Afternoon works for me.', 'synthetic.txt');
+  assert(document.querySelector('#interview-text')?.value === 'I need captions. Afternoon works for me.', 'Valid text import creates a note');
+  return { passed: true, checks, origin: location.origin };
+}

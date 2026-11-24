@@ -18,7 +18,7 @@ Run `npm test` and `npm run build`. `npm run preview` serves the production buil
 
 | Check | Observed result |
 | --- | --- |
-| Unit tests | 7 passed: payload boundaries, exact quotes, citation validity, unique participant counts, omitted passages, stale export, written-example guard. |
+| Unit tests | 27 passed: payload boundaries, exact quotes, citation validity, unique participant counts, omitted passages, stale export, malformed outputs and written-example guard. |
 | Production build | TypeScript and Vite build passed; offline assets generated. |
 | Dependency audit | Zero reported vulnerabilities after dependency overrides. This is not a security audit. |
 | Browser workflow | Approval, written findings, 4/2 participant counts, source viewing, reviewed export, edit revocation and stale-export blocking passed. |
@@ -36,6 +36,8 @@ Run `npm test` and `npm run build`. `npm run preview` serves the production buil
 Local test scripts, screenshots and result evidence are in ignored `.local/`. They are not application dependencies or public submission assets. Firebase CLI authentication succeeded and the hosting site was listed successfully. On this Windows installation, Firebase CLI 15.37.0 sometimes prints a Node/libuv assertion while exiting after a successful operation; verify the operation's remote result instead of interpreting that exit message alone.
 
 ## Observed limitations
+
+See the [broader evaluation](evaluation/2026-11-24.md) for six additional local scenarios, 28 cloud calls across two prompts, 12 browser checks and preserved failures. The unpunctuated-line coverage bug found there is fixed. Revised cloud instructions reduce some errors but do not eliminate false counterevidence or unsupported inferences. Direct editing of draft findings and their citation roles is the next priority.
 
 An early local extraction omitted a negative constraint. The revised prompt and JSON schema recovered both sentences in a small follow-up, but this does not establish reliable recall. The interface therefore displays source passages not fully covered by cards and allows manual excerpt creation.
 

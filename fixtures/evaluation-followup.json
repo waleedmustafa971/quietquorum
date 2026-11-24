@@ -1,0 +1,12 @@
+[
+  {"id":"transport-followup","question":"What transport support do attendees need?","evidence":[
+    {"id":"a","participant":"P01","excerpt":"I need a bus route to the venue because I do not drive."},
+    {"id":"b","participant":"P02","excerpt":"I can drive myself to the venue."},
+    {"id":"c","participant":"P03","excerpt":"I can take the bus or cycle."}
+  ],"rubric":"P02 driving does not refute P01 needing a bus. P03 flexibility does not imply a bus-only demand. Do not infer income or a medical condition."},
+  {"id":"quiet-room-followup","question":"What learning environment would work for attendees?","evidence":[
+    {"id":"a","participant":"P01","excerpt":"I need a quiet room to concentrate."},
+    {"id":"b","participant":"P02","excerpt":"Background music does not bother me."},
+    {"id":"c","participant":"P03","excerpt":"I prefer music but can work in silence."}
+  ],"rubric":"Tolerance of music is not a requirement for music or counterevidence to P01's need. P03 can work in silence. No diagnoses may be inferred."}
+]
