@@ -58,4 +58,4 @@ Browser storage is unencrypted. Redaction and participant linking depend on the 
 
 ## Project
 
-The [Devpost entry](https://devpost.com/software/quietquorum) is a draft. The submission state and outstanding declarations are recorded in the [handoff](docs/continuation.md). Source is available under the [MIT license](LICENSE). [Contributing](CONTRIBUTING.md)
+The [Devpost entry](https://devpost.com/software/quietquorum) is submitted. Details are recorded in the [handoff](docs/continuation.md). Source is available under the [MIT license](LICENSE). [Contributing](CONTRIBUTING.md)

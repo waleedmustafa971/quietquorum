@@ -1,6 +1,6 @@
 # QuietQuorum — resume here
 
-Last updated: November 24, 2026. User: Waleed. Workspace: `D:\Gemini Hackathon` on Windows/PowerShell. This file is a project handoff, not a promise that unrelated future chats automatically retain the conversation. Root `AGENTS.md` points here for future work in this checkout.
+Last updated: November 25, 2026. User: Waleed. Workspace: `D:\Gemini Hackathon` on Windows/PowerShell. This file is a project handoff, not a promise that unrelated future chats automatically retain the conversation. Root `AGENTS.md` points here for future work in this checkout.
 
 ## Idea in plain language
 
@@ -11,7 +11,7 @@ Demo: four people prefer Saturday, but two cannot attend. A repeated comment by 
 ## What is already completed
 
 - Research of organizer-announced hackathon winners and competing products: `docs/research-and-selection.md`. QuietQuorum selected for a focused audience, useful hybrid architecture and a clear demonstration; no guaranteed-win claim.
-- Devpost registration verified and **one** project created: https://devpost.com/software/quietquorum. Implementation story, live demo and GitHub links saved and verified. Entry remains **INCOMPLETE SUBMISSION / draft**, last seen 2/5 steps done.
+- Devpost registration verified and **one** project created: https://devpost.com/software/quietquorum. Implementation story, live demo and GitHub links saved and verified. Entry **SUBMITTED**, 5/5 steps done, confirmed in the manage dashboard on Nov 25.
 - Optional quota request submitted; Google Forms confirmed receipt. User consented to later identity verification. Quota approval/identity verification still pending. Do not submit duplicate requests or store identity documents here.
 - Firebase project `quietquorum-358a5`, Spark/no-cost plan; web app, Gemini Developer API, Firebase AI Logic and App Check configured. Production reCAPTCHA Enterprise score-based provider registered for the two Firebase Hosting domains. No billing upgrade.
 - Firebase CLI login completed and hosting deployment verified. Live app: https://quietquorum-358a5.web.app.
@@ -30,7 +30,7 @@ November 25 release `964a7ca` is published on main. Firebase Hosting serves `ind
 
 A hosted rehearsal exposed a stalled cloud request after first using the app offline. Separate local/cloud SDK initialization now defers Enterprise App Check setup to cloud access. The development reconnect exercise sent a single approved fictional excerpt and obtained a confirmed cloud result in 2.25 seconds. Raw notes remain on device.
 
-Remaining entrant work includes real prospective-user feedback, completion of Devpost additional information, verification of required personal declarations and confirmation of final submission. Keep the existing draft and preserve its incomplete state until these are satisfied.
+Entry submitted Nov 25. Optional follow-ups: real prospective-user feedback and phone verification for the custom YouTube thumbnail. Edits remain possible until the deadline.
 
 Recommended target: Best Web/Chrome App ($3,000). The event also awards a $10,000 Grand Prize and gives cross-platform apps strong consideration for it, while allowing outstanding single-platform winners. Do not add rushed mobile platforms at the expense of a polished, honest web demonstration. Winning remains uncertain.
 
@@ -60,4 +60,6 @@ For current factual completion flags, consult `submission/project.json`. Update 
 
 The post-deployment rehearsal on November 25 confirmed three exact quotes in 131.1 seconds with a failed network probe, followed by four cloud findings from 15 approved excerpts in 26.7 seconds with production App Check. Saturday showed four supporting participants and two unable to attend. Researcher correction, reviewed HTML download and stale-export blocking passed in the hosted UI. The 103.262-second English demo uses genuine footage with shortened waits labeled on screen.
 
-The finished [public YouTube demo](https://youtu.be/ZtYqxEungjs) is on Musashi. Public attribution and persisted Devpost video URL and story were independently checked. Final submission remains pending.
+Video v2 is PUBLIC at https://youtu.be/wcEilNmj7Pg (uploaded Nov 25 via Studio: title/description/audience set, checks passed, English captions published for the 21-entry sidecar, SD processing complete). Custom thumbnail blocked until the channel verifies a phone number; auto-thumbnail stands in. Project.json videoUrl updated. Old v1 cut remains at https://youtu.be/ZtYqxEungjs. Devpost video URL swapped to v2 and verified in the embed; Additional-info fields completed and entry SUBMITTED Nov 25 (5/5 steps, confirmed SUBMITTED in manage dashboard). Optional follow-up: phone verification for the custom thumbnail.
+
+Video v2 (Nov 25, local-only build): preserved published 103.262s cut byte-identical as the body of submission/QuietQuorum-demo-final.mp4 (131.4s, H264+AAC+mov_text, faststart, under 3 min). Added free edge-TTS opening, hybrid-architecture card (ONLY_ON_DEVICE vs ONLY_IN_CLOUD plus approval gate), measured-stats card (22 scenarios, 43 local calls, 25/31 cloud, 44/44 verbatim, 51/51 cited, 61 unit + 16 browser checks, draft-only limit), and closing links card. Sidecars: QuietQuorum-demo-final.en.srt/.vtt (21 entries, validated) and QuietQuorum-thumbnail.png (1280x720). Original demo, narration.mp3 and transcript.json untouched. QA: duration 131.418s, moov-before-mdat, audio mean -18.1dB/max -1.3dB, stats cross-checked to docs/evaluation/readiness.md. Manual steps left: watch v2 end-to-end, upload/replace on YouTube, attach SRT on YouTube/Devpost, set thumbnail, re-verify Devpost link. Final submission still pending.

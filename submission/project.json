@@ -12,7 +12,7 @@
   "devpostProjectUrl": "https://devpost.com/software/quietquorum",
   "repositoryUrl": "https://github.com/waleedmustafa971/quietquorum",
   "liveAppUrl": "https://quietquorum-358a5.web.app",
-  "videoUrl": "https://youtu.be/ZtYqxEungjs",
+  "videoUrl": "https://youtu.be/wcEilNmj7Pg",
   "eligibilityConfirmed": false,
   "registrationVerified": true,
   "devpostProjectCreated": true,
@@ -21,7 +21,7 @@
   "firebaseProjectId": "quietquorum-358a5",
   "localInferenceVerified": true,
   "cloudInferenceVerified": true,
-  "finalSubmissionVerified": false,
+  "finalSubmissionVerified": true,
   "devpostDetailsSaved": true,
   "quotaFormPrepared": true,
   "quotaStatus": "submitted_awaiting_eligibility_and_identity_verification",
@@ -68,5 +68,13 @@
   "demoDurationSeconds": 103.262,
   "hostedReconnectVerified": true,
   "videoPublicVerified": true,
-  "devpostVideoSaved": true
+  "devpostVideoSaved": true,
+  "demoFinalFile": "submission/QuietQuorum-demo-final.mp4",
+  "demoFinalDurationSeconds": 131.418,
+  "demoFinalSubtitles": [
+    "submission/QuietQuorum-demo-final.en.srt",
+    "submission/QuietQuorum-demo-final.en.vtt"
+  ],
+  "demoThumbnail": "submission/QuietQuorum-thumbnail.png",
+  "demoFinalNotes": "Preserves published 103.262s cut byte-identical as body; adds free-TTS opening, hybrid-arch, measured-stats and closing cards. Original retained."
 }
