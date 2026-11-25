@@ -2,7 +2,7 @@
   "name": "QuietQuorum",
   "pitch": "Turn private interview notes into evidence-backed findings, offline first, without losing the voices that disagree.",
   "stage": "deployed-prototype",
-  "preparedOn": "2026-11-24",
+  "preparedOn": "2026-11-25",
   "platform": "Web/Chrome",
   "eventUrl": "https://firebasehybridaihackathon.devpost.com/",
   "quotaFormUrl": "https://forms.gle/uPcDhaYW3iVo2AYw5",
@@ -31,7 +31,7 @@
   "appCheckDebugRegistered": true,
   "metaDevelopmentTestPassed": true,
   "offlineReloadVerified": true,
-  "unitTestsPassed": 27,
+  "unitTestsPassed": 61,
   "publicDeploymentVerified": true,
   "localOfflineInferenceVerified": true,
   "productionAppCheckRegistered": true,
@@ -42,7 +42,7 @@
   "devpostImplementationDetailsSaved": true,
   "devpostDemoAndRepositoryLinksSaved": true,
   "broadTestingCompleted": true,
-  "evaluationReport": "docs/evaluation/2026-11-24.md",
+  "evaluationReport": "docs/evaluation/readiness.md",
   "evaluation": {
     "localScenariosPassed": 6,
     "localScenarios": 6,
@@ -50,5 +50,21 @@
     "cloudFollowupCalls": 16,
     "semanticErrorsRemain": true,
     "browserChecksPassed": 12
-  }
+  },
+  "historicalEvaluationReport": "docs/evaluation/2026-11-24.md",
+  "releaseCommit": "964a7ca",
+  "readinessReport": "HACKATHON_READINESS.md",
+  "readinessEvaluation": {
+    "heldOutScenarios": 22,
+    "localCalls": 43,
+    "cloudSuccesses": 25,
+    "cloudRateLimits": 6,
+    "plainSummaryCalls": 3,
+    "browserWorkflowChecks": 16,
+    "crossTabStorageTestsPassed": true,
+    "githubActionsPassed": true
+  },
+  "demoFile": "submission/QuietQuorum-demo.mp4",
+  "demoDurationSeconds": 103.262,
+  "hostedReconnectVerified": true
 }

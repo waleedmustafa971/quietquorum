@@ -24,14 +24,13 @@ Demo: four people prefer Saturday, but two cannot attend. A repeated comment by 
 - Fixed source-coverage omission for notes with unpunctuated lines. Revised the cloud prompt to distinguish different needs from counterevidence; semantic mistakes still remain.
 - Coverage fix and revised prompt deployed on November 24 after broad testing. The service worker can keep an already-open tab on the previous build; close all app tabs and reopen to activate a waiting update. Add an explicit update notification if time allows.
 
-## Where we stopped / next priorities
+## Current release and remaining work
 
-1. **Highest priority: let the researcher correct draft finding text and citation roles.** Broad tests found false counterevidence and unsupported inferences. Prompt wording alone is insufficient. Reset review after edits and test that edited exports preserve provenance.
-2. Address local inference latency/availability in the demo experience. Six probes took roughly 12–51 seconds on this machine. Pre-download and rehearse; don't disguise recordings as live inference.
-3. Obtain real feedback from two or three prospective users. None collected yet. Do not fabricate interviews, adoption or time savings.
-4. Record a working English demo, maximum three minutes, upload public/unlisted to YouTube, then add the URL to Devpost. No video recorded/uploaded yet.
-5. Finish Devpost additional information and verify outstanding eligibility declarations (age, excluded affiliations/employment and any other required claims). Do not infer these from timezone or account names.
-6. Complete the final Submit step and verify submission confirmation. **Not done yet.**
+November 25 release `964a7ca` is published on main. Firebase Hosting serves `index-B6p3kaZz.js`. The previous positional participant model, JSON-only export and missing correction workflow have been replaced. Researchers can link repeat interviews, correct or create findings, review roles and preview printable HTML or JSON. See [readiness](../HACKATHON_READINESS.md) and [held-out results](evaluation/readiness.md). All 61 automated tests, 16 browser workflow checks and the public GitHub Actions build passed.
+
+A hosted rehearsal exposed a stalled cloud request after first using the app offline. Separate local/cloud SDK initialization now defers Enterprise App Check setup to cloud access. The development reconnect exercise sent a single approved fictional excerpt and obtained a confirmed cloud result in 2.25 seconds. Raw notes remain on device.
+
+Remaining entrant work includes real prospective-user feedback, verification of required personal declarations, the YouTube link and confirmation of final submission. Keep the existing draft and preserve its incomplete state until these are satisfied.
 
 Recommended target: Best Web/Chrome App ($3,000). The event also awards a $10,000 Grand Prize and gives cross-platform apps strong consideration for it, while allowing outstanding single-platform winners. Do not add rushed mobile platforms at the expense of a polished, honest web demonstration. Winning remains uncertain.
 
@@ -55,6 +54,8 @@ Recommended target: Best Web/Chrome App ($3,000). The event also awards a $10,00
 - **Do not assume `localhost:4173` is QuietQuorum.** An unrelated app was observed on the IPv6 localhost origin. Use the exact 127.0.0.1 URL and inspect the page first.
 - Local reports/screenshots/helpers are in ignored `.local/`; sanitized evaluation evidence is committed under `docs/evaluation/`.
 - Firebase runtime must remain in `src/inference.ts`; raw notes use ONLY_ON_DEVICE and reviewed excerpts use ONLY_IN_CLOUD. No automatic raw-note cloud fallback.
-- One note equals one participant. Storage is local and unencrypted, no multi-tab coordination/account sync. Citation validity does not prove correct interpretation. Arabic passed one exploratory probe; full multilingual support is not established.
+- Stable pseudonyms support several interviews per participant. Storage is local and unencrypted. Conflicting tab writes are rejected. There is no account sync. Citation validity does not prove correct interpretation. Arabic passed one exploratory probe; full multilingual support is not established.
 
 For current factual completion flags, consult `submission/project.json`. Update this handoff at the end of the next work session.
+
+The post-deployment rehearsal on November 25 confirmed three exact quotes in 131.1 seconds with a failed network probe, followed by four cloud findings from 15 approved excerpts in 26.7 seconds with production App Check. Saturday showed four supporting participants and two unable to attend. Researcher correction, reviewed HTML download and stale-export blocking passed in the hosted UI. The 103.262-second English demo uses genuine footage with shortened waits labeled on screen.

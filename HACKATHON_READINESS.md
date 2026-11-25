@@ -53,7 +53,7 @@ Storage is unencrypted and tied to one browser profile. Simultaneous tab writes 
 | Requirement | Status |
 | --- | --- |
 | Web/Chrome runtime, on-device and cloud Firebase AI Logic, App Check | Implemented. The SDK confirms the placement of successful results. The browser manages its Nano model; inference metadata alone does not independently attest the Nano 4 version number. |
-| Public free app | Verified production bundle `index-CRLZUiUO.js` deployed to the existing Firebase Hosting project. Keep access available throughout judging, ending December 16, 2026. Cloud access remains subject to provider quota. |
+| Public free app | Verified production bundle `index-B6p3kaZz.js` deployed to the existing Firebase Hosting project. Keep access available throughout judging, ending December 16, 2026. Cloud access remains subject to provider quota. |
 | Public source, license and reproducible instructions | Existing public GitHub repository, MIT license, English setup, no-credential demo and CI configuration. |
 | Period and third-party disclosure | Include the work completed during the contest and disclose applicable pre-existing components and dependencies. Entrant ownership, permissions and representations require the entrant's confirmation. |
 | English demonstration | Recording guide and narration prepared. A publicly visible English or English-subtitled YouTube video of three minutes or less and its URL in Devpost remain required. |
@@ -84,3 +84,9 @@ Baseline commit `b1134b9` rebuilt from a Git archive with the installed locked d
 | P1 | Held-out scenarios, hybrid resilience and CI | Planned |
 | P1 | Privacy, setup, demo and usability protocol | Planned |
 | Release | Verified Hosting deployment and public source | Pending |
+
+## November 25 reconnect verification
+
+Offline-first use exposed a stalled App Check initialization during rehearsal. The runtime now initializes separate SDK instances for local and cloud inference and registers App Check before obtaining the cloud AI service. The corrected release passed 61 automated tests, 16 Chrome checks and a live development reconnect using one approved excerpt. Public CI passed for commit `964a7ca`.
+
+The post-deployment rehearsal on November 25 confirmed three exact quotes in 131.1 seconds with a failed network probe, followed by four cloud findings from 15 approved excerpts in 26.7 seconds with production App Check. Saturday showed four supporting participants and two unable to attend. Researcher correction, reviewed HTML download and stale-export blocking passed in the hosted UI. The 103.262-second English demo uses genuine footage with shortened waits labeled on screen.
