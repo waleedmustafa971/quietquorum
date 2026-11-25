@@ -56,7 +56,7 @@ Storage is unencrypted and tied to one browser profile. Simultaneous tab writes 
 | Public free app | Verified production bundle `index-B6p3kaZz.js` deployed to the existing Firebase Hosting project. Keep access available throughout judging, ending December 16, 2026. Cloud access remains subject to provider quota. |
 | Public source, license and reproducible instructions | Existing public GitHub repository, MIT license, English setup, no-credential demo and CI configuration. |
 | Period and third-party disclosure | Include the work completed during the contest and disclose applicable pre-existing components and dependencies. Entrant ownership, permissions and representations require the entrant's confirmation. |
-| English demonstration | Recording guide and narration prepared. A publicly visible English or English-subtitled YouTube video of three minutes or less and its URL in Devpost remain required. |
+| English demonstration | The [English demo](https://youtu.be/ZtYqxEungjs) is public on Musashi. Its duration is 103.262 seconds. The video URL and updated story were verified after reopening the existing Devpost draft. |
 | Eligibility, team and final entry | Registration and existing draft verified previously. Age, excluded affiliations/employment, other eligibility and ownership declarations remain with the entrant. No final submission confirmation. |
 
 The rules accept Web/Chrome as a platform and require runtime use, access for judging, source, license and submission materials. Award decisions and entrant eligibility are determined by the organizers. [Official competition rules](https://firebasehybridaihackathon.devpost.com/rules)

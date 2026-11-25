@@ -12,7 +12,7 @@
   "devpostProjectUrl": "https://devpost.com/software/quietquorum",
   "repositoryUrl": "https://github.com/waleedmustafa971/quietquorum",
   "liveAppUrl": "https://quietquorum-358a5.web.app",
-  "videoUrl": null,
+  "videoUrl": "https://youtu.be/ZtYqxEungjs",
   "eligibilityConfirmed": false,
   "registrationVerified": true,
   "devpostProjectCreated": true,
@@ -66,5 +66,7 @@
   },
   "demoFile": "submission/QuietQuorum-demo.mp4",
   "demoDurationSeconds": 103.262,
-  "hostedReconnectVerified": true
+  "hostedReconnectVerified": true,
+  "videoPublicVerified": true,
+  "devpostVideoSaved": true
 }

@@ -30,7 +30,7 @@ November 25 release `964a7ca` is published on main. Firebase Hosting serves `ind
 
 A hosted rehearsal exposed a stalled cloud request after first using the app offline. Separate local/cloud SDK initialization now defers Enterprise App Check setup to cloud access. The development reconnect exercise sent a single approved fictional excerpt and obtained a confirmed cloud result in 2.25 seconds. Raw notes remain on device.
 
-Remaining entrant work includes real prospective-user feedback, verification of required personal declarations, the YouTube link and confirmation of final submission. Keep the existing draft and preserve its incomplete state until these are satisfied.
+Remaining entrant work includes real prospective-user feedback, completion of Devpost additional information, verification of required personal declarations and confirmation of final submission. Keep the existing draft and preserve its incomplete state until these are satisfied.
 
 Recommended target: Best Web/Chrome App ($3,000). The event also awards a $10,000 Grand Prize and gives cross-platform apps strong consideration for it, while allowing outstanding single-platform winners. Do not add rushed mobile platforms at the expense of a polished, honest web demonstration. Winning remains uncertain.
 
@@ -59,3 +59,5 @@ Recommended target: Best Web/Chrome App ($3,000). The event also awards a $10,00
 For current factual completion flags, consult `submission/project.json`. Update this handoff at the end of the next work session.
 
 The post-deployment rehearsal on November 25 confirmed three exact quotes in 131.1 seconds with a failed network probe, followed by four cloud findings from 15 approved excerpts in 26.7 seconds with production App Check. Saturday showed four supporting participants and two unable to attend. Researcher correction, reviewed HTML download and stale-export blocking passed in the hosted UI. The 103.262-second English demo uses genuine footage with shortened waits labeled on screen.
+
+The finished [public YouTube demo](https://youtu.be/ZtYqxEungjs) is on Musashi. Public attribution and persisted Devpost video URL and story were independently checked. Final submission remains pending.
