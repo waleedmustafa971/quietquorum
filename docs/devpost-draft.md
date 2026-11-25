@@ -32,7 +32,7 @@ The primary target is desktop Chrome. Offline local AI requires compatible hardw
 
 ## Current progress
 
-The prototype is deployed at https://quietquorum-358a5.web.app. Real on-device extraction, offline local inference and cloud synthesis have been verified using fictional interviews. A live cloud request from the public app succeeded with production App Check. Seven unit tests and the production build pass; browser checks covered approval, participant counts, export boundaries, stale findings and offline reload. This is small-scale functional verification, not a model-quality benchmark. User testing and the demo video remain outstanding.
+The prototype is deployed at https://quietquorum-358a5.web.app. Real on-device extraction, offline local inference and cloud synthesis have been verified using fictional interviews. A live cloud request from the public app succeeded with production App Check. The release passes 61 automated tests, 16 Chrome workflow checks and a separate network-blocked reload. Researchers can link repeat interviews, edit findings, reclassify evidence and preview printable reports. This is small-scale functional verification, not a model-quality benchmark. User testing and the demo video remain outstanding.
 
 ## Challenges we are working on
 
@@ -40,7 +40,7 @@ An early local test missed a negative constraint. We improved the prompt and out
 
 ## What is next
 
-Expand evaluation on unseen synthetic scenarios, improve correction of draft findings, collect feedback from prospective users, and record the working hybrid demonstration before final submission.
+Test the correction workflow with prospective users, complete the public video and verify the remaining entrant declarations before final submission. The held-out evaluation covers 22 fictional scenarios and preserves quota errors and semantic limitations.
 
 ## Built with
 

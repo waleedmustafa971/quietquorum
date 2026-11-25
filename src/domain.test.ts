@@ -1,5 +1,6 @@
 import { describe, expect, it } from 'vitest';
-import { demoStudy, createCard, editCard, makePayload, validateExtraction, validateFindings, countPeople, exampleFindings, uncovered, uncoveredPassages, exportReport, isStale } from './domain';
+import { correctFinding, demoStudy, createCard, editCard, makePayload, validateExtraction, validateFindings, countPeople, exampleFindings, uncovered, uncoveredPassages, exportReport, isStale, type Study } from './domain';
+import followup from '../fixtures/evaluation-followup.json';
 
 const prepared = () => { const s = demoStudy(); s.cards.forEach(c => c.approved = true); return s; };
 describe('privacy and evidence boundaries', () => {
@@ -32,7 +33,7 @@ describe('privacy and evidence boundaries', () => {
   });
   it('reports uncovered cards and excludes originals and identity fields from export', () => {
     const s = prepared(); const p = makePayload(s);
-    s.result = { findings: exampleFindings(p), payload: p, origin: 'Example — not AI', elapsedMs: 0, createdAt: '2026-11-24', reviewed: true };
+    s.result = { findings: exampleFindings(p).map(f => ({ ...f, reviewed: true })), payload: p, origin: 'Example — not AI', elapsedMs: 0, createdAt: '2026-11-24', reviewed: true };
     expect(uncovered(s.result).map(c => c.id)).toEqual(['P05-1', 'P05-2']);
     expect(exportReport(s)).not.toContain('privateContact');
     expect(exportReport(s)).not.toContain('Demo Participant');
@@ -87,5 +88,50 @@ describe('privacy and evidence boundaries', () => {
     expect(() => exportReport(s)).toThrow();
     expect(countPeople(['P03-0', 'P03-1', 'P03-1'], payload)).toBe(1);
     expect(countPeople(['unknown'], payload)).toBe(0);
+  });
+});
+
+describe('researcher corrections', () => {
+  function transportStudy(): Study {
+    const { question, evidence } = followup[0];
+    const notes = evidence.map(e => ({ id: e.participant, participant: e.participant, label: e.participant, text: e.excerpt, privateName: 'PRIVATE_NAME', privateContact: 'PRIVATE_CONTACT' }));
+    const cards = notes.map((n, i) => ({ ...createCard(n, n.text), id: evidence[i].id, approved: true }));
+    const study = { ...demoStudy(), question, notes, cards };
+    const payload = makePayload(study);
+    const findings = validateFindings({ findings: [{ title: 'Bus route need for attendee without a car', summary: 'One attendee needs a bus route to the venue because they do not drive.', support: ['a'], conflict: ['b'] }] }, payload);
+    return { ...study, result: { findings, payload, origin: 'Cloud · Firebase AI Logic', createdAt: '2026-11-24', elapsedMs: 1751.5, reviewed: true } };
+  }
+  it('removes the recorded transport misclassification and preserves the approved source snapshot through export', () => {
+    const study = transportStudy(), before = study.result!;
+    const corrected = correctFinding(study, { ...before.findings[0], title: 'One attendee needs a bus route', conflict: [] });
+    expect(corrected.result!.reviewed).toBe(false);
+    expect(() => exportReport(corrected)).toThrow();
+    expect(before.findings[0].conflict).toEqual(['b']);
+    corrected.result!.reviewed = true;
+    corrected.result!.findings[0].reviewed = true;
+    const json = exportReport(corrected), report = JSON.parse(json);
+    expect(report.findings[0]).toMatchObject({ id: before.findings[0].id, title: 'One attendee needs a bus route', editedAt: expect.any(String), support: ['a'], conflict: [], supportingParticipants: 1, conflictingParticipants: 0 });
+    expect(report.evidence).toEqual(before.payload.evidence);
+    expect(report.origin).toBe(before.origin);
+    expect(report.createdAt).toBe(before.createdAt);
+    expect(report.uncovered).toEqual(['b', 'c']);
+    expect(json).not.toMatch(/PRIVATE_|without a car/);
+    corrected.cards[0].approved = false;
+    expect(() => exportReport(corrected)).toThrow();
+    expect(() => correctFinding(corrected, corrected.result!.findings[0])).toThrow();
+  });
+  it('can reassign roles, add an uncited excerpt, and edit a summary', () => {
+    const study = transportStudy(), finding = study.result!.findings[0];
+    const corrected = correctFinding(study, { ...finding, summary: 'Participants describe several ways of reaching the venue.', support: ['b','c'], conflict: ['a'] });
+    expect(corrected.result!.findings[0]).toMatchObject({ support: ['b','c'], conflict: ['a'] });
+    expect(uncovered(corrected.result!)).toHaveLength(0);
+  });
+  it('preserves existing review for a no-op and rejects invalid corrections', () => {
+    const study = transportStudy(), f = study.result!.findings[0];
+    expect(correctFinding(study, f)).toBe(study);
+    for (const patch of [{ id: 'missing' }, { title: ' ' }, { summary: '' }, { support: [] }, { conflict: ['missing'] }, { conflict: ['a'] }]) {
+      expect(() => correctFinding(study, { ...f, ...patch })).toThrow();
+    }
+    expect(study.result!.reviewed).toBe(true);
   });
 });
